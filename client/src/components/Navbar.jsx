@@ -3,15 +3,23 @@ import { useState } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import Img from './OptimizedImg.jsx';
 
+const DEFAULT_LINKS = [
+  { href: '/courses', label: 'Courses' },
+  { href: '/events', label: 'Events' },
+  { href: '/blog', label: 'Blog' },
+  { href: '/mentors', label: 'Mentors' },
+  { href: '/contact', label: 'Contact' }
+];
+
 export default function Navbar({ settings }) {
   const [open, setOpen] = useState(false);
-  const links = [...(settings?.navLinks || [])]
+  const links = (settings?.navLinks?.length ? settings.navLinks : DEFAULT_LINKS)
     .filter((link) => link.isVisible !== false)
-    .sort((a, b) => a.order - b.order);
+    .sort((a, b) => (a.order || 0) - (b.order || 0));
 
   return (
-    <header className="sticky top-0 z-40 border-b border-slate-200 bg-white/95 backdrop-blur">
-      <div className="container-page flex h-16 items-center justify-between">
+    <header className="sticky top-0 z-40 h-16 border-b border-slate-200 bg-white/95 backdrop-blur">
+      <div className="container-page flex h-full items-center justify-between">
         <Link to="/" className="flex items-center gap-3 font-semibold text-slate-950">
           {settings?.logoUrl ? <Img src={settings.logoUrl} alt={settings.siteName} width="36" height="36" className="h-9 w-9 rounded object-cover" /> : <span className="grid h-9 w-9 place-items-center rounded bg-brand text-white">E</span>}
           <span>{settings?.siteName || 'EduNova'}</span>
