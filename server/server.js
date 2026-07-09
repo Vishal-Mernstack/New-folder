@@ -35,8 +35,8 @@ const allowedOrigins = [
   process.env.CLIENT_URL,
   process.env.ADMIN_URL,
   ...configuredOrigins,
-  'http://localhost:5173',
-  'http://localhost:5174'
+  'https://new-folder-hyw8.vercel.app',
+  'https://new-folder-ucrg.vercel.app'
 ].filter(Boolean);
 
 app.use(cors({

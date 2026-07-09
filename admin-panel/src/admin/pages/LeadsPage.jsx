@@ -17,7 +17,7 @@ export default function LeadsPage() {
   const updateStatus = async (row, nextStatus) => { await api.patch(`/leads/${row._id}/status`, { status: nextStatus }); await load(); };
   const exportCsv = async () => {
     const token = localStorage.getItem('edtech_admin_token');
-    const response = await fetch(`${import.meta.env.VITE_API_BASE_URL || 'http://localhost:5000/api'}/leads/export/csv`, {
+    const response = await fetch(`${import.meta.env.VITE_API_BASE_URL || 'https://new-folder-weld-one.vercel.app/api'}/leads/export/csv`, {
       headers: { Authorization: `Bearer ${token}` }
     });
     const blob = await response.blob();
