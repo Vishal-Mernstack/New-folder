@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 export const api = axios.create({
-  baseURL: import.meta.env.VITE_API_BASE_URL || 'https://new-folder-weld-one.vercel.app/api'
+  baseURL: import.meta.env.VITE_API_BASE_URL || 'https://server-six-delta-38.vercel.app/api'
 });
 
 api.interceptors.request.use((config) => {

@@ -88,12 +88,14 @@ Frontend `client/.env`:
 
 ```env
 VITE_API_BASE_URL=http://localhost:5000/api
+# Production: VITE_API_BASE_URL=https://server-six-delta-38.vercel.app/api
 ```
 
 Admin `admin-panel/.env`:
 
 ```env
 VITE_API_BASE_URL=http://localhost:5000/api
+# Production: VITE_API_BASE_URL=https://server-six-delta-38.vercel.app/api
 ```
 
 ## API Summary
