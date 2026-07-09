@@ -1,7 +1,8 @@
 import axios from 'axios';
 
+const raw = import.meta.env.VITE_API_BASE_URL || 'https://server-six-delta-38.vercel.app';
 export const api = axios.create({
-  baseURL: import.meta.env.VITE_API_BASE_URL || 'https://server-six-delta-38.vercel.app/api'
+  baseURL: raw.replace(/\/api\/?$/i, '').replace(/\/?$/, '') + '/api'
 });
 
 api.interceptors.request.use((config) => {
